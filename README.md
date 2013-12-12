@@ -10,17 +10,17 @@ interactors).
 
 ## Installation
 
-  Add this line to your application's Gemfile:
+Add this line to your application's Gemfile:
 
-  gem 'yaba-core'
+    gem 'yaba-core'
 
-  And then execute:
+And then execute:
 
-  $ bundle
+    $ bundle
 
-  Or install it yourself as:
+Or install it yourself as:
 
-  $ gem install yaba-core
+    $ gem install yaba-core
 
 ## Usage
 
