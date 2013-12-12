@@ -1,4 +1,4 @@
-# Yaba::Core
+# Yaba::Core [![Build Status](https://travis-ci.org/zamith/yaba-core.png?branch=master)](https://travis-ci.org/zamith/yaba-core)
 
 This is the core of YABA (Yet Another Blog Application) written from scratch,
 and following an hexagonal arch approach.
