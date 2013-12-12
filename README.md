@@ -12,15 +12,11 @@ interactors).
 
 Add this line to your application's Gemfile:
 
-    gem 'yaba-core'
+    gem 'yaba-core', github: 'zamith/yaba-core', require: false
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install yaba-core
 
 ## Usage
 
