@@ -1,3 +1,3 @@
 require 'pry'
 require 'fixtures/initialized_repository'
-#require 'listeners_config'
+require 'listeners_config'
