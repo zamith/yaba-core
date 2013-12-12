@@ -1,7 +1,3 @@
-require "entities/post"
-require "persistence/posts"
-require 'wisper'
-
 module Interactors
   class UpdatesPosts
     include Wisper::Publisher

@@ -1,6 +1,4 @@
 require 'active_record'
-require "#{APP_ROOT}/serializers/pipeline"
-require "#{APP_ROOT}/entities/post"
 
 module Repositories
   module Posts

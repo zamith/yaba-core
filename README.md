@@ -24,7 +24,7 @@ interactors).
 
 ## Usage
 
-Choose one of YABA's delivery mechanism, or write your own.
+Choose one of YABA's delivery mechanisms, or write your own.
 
 ## Contributing
 

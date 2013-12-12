@@ -1,9 +1,31 @@
 require "yaba/core/version"
+require 'wisper'
+
+autoload :Repository, 'repository'
+
+module Entities
+  autoload :Post, 'yaba/core/entities/post'
+end
+
+module Serializers
+  autoload :Pipeline, 'yaba/core/serializers/pipeline'
+  autoload :Mongoid, 'yaba/core/serializers/mongoid'
+end
+
+module Interactors
+  autoload :CreatesPosts, 'yaba/core/interactors/creates_posts'
+  autoload :GetsPosts, 'yaba/core/interactors/gets_posts'
+  autoload :DeletesPosts, 'yaba/core/interactors/deletes_posts'
+  autoload :UpdatesPosts, 'yaba/core/interactors/updates_posts'
+end
+
+module Persistence
+  autoload :Posts, 'yaba/core/persistence/posts'
+end
+
 
 module Yaba
   module Core
-    require "repository"
-
     class Config
       def self.configure
         @repository_config = RepositoryConfig.new
@@ -22,16 +44,6 @@ module Yaba
       def self.post_config
         @repository_config.load_repos
         require "listeners_config"
-      end
-    end
-
-    class Symbol
-      def const_string
-        self.to_s.split('_').map(&:capitalize).join
-      end
-
-      def singularize
-        self.to_s.chomp("s")
       end
     end
 
@@ -61,5 +73,15 @@ module Yaba
         end
       end
     end
+  end
+end
+
+class Symbol
+  def const_string
+    self.to_s.split('_').map(&:capitalize).join
+  end
+
+  def singularize
+    self.to_s.chomp("s")
   end
 end

@@ -1,6 +1,3 @@
-require "persistence/posts"
-require 'wisper'
-
 module Interactors
   class DeletesPosts
     include Wisper::Publisher

@@ -1,6 +1,4 @@
 require 'mongoid'
-require "#{APP_ROOT}/entities/post"
-require "#{APP_ROOT}/serializers/mongoid"
 
 module Repositories
   module Posts
@@ -62,6 +60,7 @@ module Repositories
       class Post
         include ::Mongoid::Document
         field :uid, type: Integer
+        field :title, type: String
         field :body, type: String
 
         def value(serializer: Serializers::Mongoid)

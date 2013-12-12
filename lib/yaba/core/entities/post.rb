@@ -1,5 +1,3 @@
-require "serializers/pipeline"
-
 module Entities
   class Post
     attr_reader :id, :body, :title

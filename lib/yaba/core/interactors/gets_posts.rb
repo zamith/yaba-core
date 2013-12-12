@@ -1,6 +1,3 @@
-require "repository"
-require "entities/post"
-
 module Interactors
   class GetsPosts
     NUMBER_OF_RECENT_POSTS = 10
