@@ -1,7 +1,6 @@
-require 'spec_helper'
 require 'entities/post'
 
-describe "PostsRepository" do
+shared_examples "a post repository" do
   let(:repo) { Repository.for(:post) }
   let(:valid_post) { Entities::Post.new }
 
@@ -28,7 +27,7 @@ describe "PostsRepository" do
 
       repo.delete post.id
 
-      expect{ repo.find_by_id(post.id) }.to raise_error RecordNotFound
+      expect{ repo.find_by_id(post.id) }.to raise_error
     end
 
     it "deletes a post from its id even when the id is a string" do
@@ -36,7 +35,7 @@ describe "PostsRepository" do
 
       repo.delete post.id.to_s
 
-      expect{ repo.find_by_id(post.id) }.to raise_error RecordNotFound
+      expect{ repo.find_by_id(post.id) }.to raise_error
     end
   end
 
@@ -55,7 +54,7 @@ describe "PostsRepository" do
     end
 
     it "raise an exception if the post is not there" do
-      expect{ repo.find_by_id(1) }.to raise_error RecordNotFound
+      expect{ repo.find_by_id(1) }.to raise_error
     end
   end
 
@@ -90,6 +89,20 @@ describe "PostsRepository" do
       second = repo.save Entities::Post.new body: "second one"
 
       expect(repo.last(2)).to eq  [second, first]
+    end
+  end
+end
+
+module Repositories
+  module Posts
+    describe Memory do
+      require 'spec_helper'
+      it_behaves_like "a post repository"
+    end
+
+    describe "ActiveRecord" do
+      require 'repositories/ar_spec_helper'
+      it_behaves_like "a post repository"
     end
   end
 end

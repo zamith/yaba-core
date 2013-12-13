@@ -50,7 +50,7 @@ module Repositories
       attr_reader :posts, :next_id
 
       def last_n_posts(no_posts)
-        (1..no_posts).inject([]) { |recent_posts, index| recent_posts << posts[@next_id - index] }
+        (1..no_posts).reduce([]) { |recent_posts, index| recent_posts << posts[@next_id - index] }
       end
 
       def element_or_collection(recent_posts)

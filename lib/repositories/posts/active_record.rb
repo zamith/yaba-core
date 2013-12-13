@@ -33,6 +33,14 @@ module Repositories
         Entities::Post.new Post.first.value
       end
 
+      def last(no_posts = 1)
+        if no_posts == 1
+          Post.last
+        else
+          Post.order("created_at desc").limit(no_posts)
+        end
+      end
+
       def clear
         Post.all.map(&:destroy)
       end
